@@ -1,5 +1,6 @@
 import io.appium.java_client.windows.WindowsDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -47,10 +48,13 @@ public class NotepadTest {
       notepadSession.findElement(By.name("File")).click();
       notepadSession.findElementByName("Page setup").click();
       notepadSession.findElementByName("OK").click();
+      notepadSession.findElementByName("Edit").sendKeys("Hello, Etu SQA at Ibos!");
+      notepadSession.findElementByName("Edit").clear();
+
     }
-//    @Test
-//    public void sendTestText(){
-//        notepadSession.findElementByClassName("Edit").sendKeys(getDate());
-//        notepadSession.findElementByClassName("Edit").clear();
-//    }
+    @Test
+    public void sendTestText(){
+        notepadSession.findElementByName("Edit").sendKeys(getDate());
+        notepadSession.findElementByName("Edit").clear();
+    }
 }
